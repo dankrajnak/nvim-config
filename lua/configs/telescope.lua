@@ -7,4 +7,6 @@ if present then
     },
   }
   telescope.setup(vim.tbl_deep_extend("force", {}, options))
+  require("telescope").load_extension "git_file_history"
 end
+

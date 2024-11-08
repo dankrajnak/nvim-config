@@ -13,7 +13,15 @@ end)
 
 map("n", "gr", function()
   require("telescope.builtin").lsp_references()
-end)
+end, {noremap = true})
+
+map("n", "gd", function()
+  require("telescope.builtin").lsp_definitions()
+end, { noremap = true })
+
+map("n", "<leader>gd", function()
+  require("telescope.builtin").lsp_definitions()
+end, { noremap = true })
 
 map("n", "<leader>gr", function()
   require("telescope.builtin").lsp_references()
@@ -25,8 +33,10 @@ end)
 
 -- Keyboard users
 map("n", "<C-t>", function()
-  require("menu").open("default")
+  require("menu").open "default"
 end, {})
+
+map("i", "<C-s>", "<Esc>:w<enter>", { noremap = true, silent = true })
 
 -- mouse users + nvimtree users!
 map("n", "<RightMouse>", function()
@@ -35,4 +45,3 @@ map("n", "<RightMouse>", function()
   local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
   require("menu").open(options, { mouse = true })
 end, {})
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
