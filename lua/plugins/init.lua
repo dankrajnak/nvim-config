@@ -30,6 +30,31 @@ return {
     },
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = false,
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer", -- Select around function (includes function signature)
+              ["if"] = "@function.inner", -- Select inside function (excludes function signature)
+              ["ia"] = "@assignment.rhs", -- Select inside function (excludes function signature)
+              ["aa"] = "@assignment.outer", -- Select inside function (excludes function signature)
+              ["ab"] = "@block.outer", -- Select inside function (excludes function signature)
+              ["ib"] = "@block.inner", -- Select inside function (excludes function signature)
+              ["ap"] = "@parameter.outer", -- Select inside function (excludes function signature)
+              ["ip"] = "@parameter.inner", -- Select inside function (excludes function signature)
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
