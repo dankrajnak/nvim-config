@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "rust_analyzer", "ts_ls", "eslint", "tailwindcss" }
+local servers = { "html", "cssls", "rust_analyzer", "eslint", "tailwindcss" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -15,3 +15,15 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.ts_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  root_dir = lspconfig.util.root_pattern "package.json",
+}
+
+-- lspconfig.denols.setup {
+--   on_attach = nvlsp.on_attach,
+--   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+-- }
