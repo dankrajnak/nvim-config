@@ -98,6 +98,20 @@ return {
     },
   },
   {
+    "dawsers/telescope-file-history.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    lazy = false,
+    config = function()
+      require("file_history").setup {
+        -- This is the location where it will create your file history repository
+        backup_dir = "~/.file-history-git",
+        -- command line to execute git
+        git_cmd = "git",
+      }
+      require("telescope").load_extension "file_history"
+    end,
+  },
+  {
     "luckasRanarison/tailwind-tools.nvim",
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
@@ -125,5 +139,42 @@ return {
     config = true,
     lazy = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>tt",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>tT",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>tL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>tQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
   },
 }
