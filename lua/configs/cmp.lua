@@ -1,4 +1,11 @@
+local cmp = require "cmp"
+
 local options = {
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+
   enabled = function()
     -- disable if we're in a prompt context
     if vim.bo.buftype == "prompt" then
