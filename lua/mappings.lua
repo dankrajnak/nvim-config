@@ -13,7 +13,7 @@ end)
 
 map("n", "gr", function()
   require("telescope.builtin").lsp_references()
-end, {noremap = true})
+end, { noremap = true })
 
 map("n", "gd", function()
   require("telescope.builtin").lsp_definitions()
@@ -30,6 +30,8 @@ end)
 map("n", "<leader>sl", function()
   vim.diagnostic.open_float()
 end)
+
+map("n", "<leader>b", ":ToggleBlameLine<CR>")
 
 -- Keyboard users
 map("n", "<C-t>", function()
