@@ -1,5 +1,9 @@
 local options = {
   enabled = function()
+    -- disable if we're in a prompt context
+    if vim.bo.buftype == "prompt" then
+      return false
+    end
     -- disable completion in comments
     local context = require "cmp.config.context"
     -- keep command mode completion enabled when cursor is in a comment
