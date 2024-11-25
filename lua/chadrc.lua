@@ -54,8 +54,4 @@ M.nvdash = {
   },
 }
 
-
-
-
-
 return M
