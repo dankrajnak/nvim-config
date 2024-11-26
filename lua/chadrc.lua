@@ -14,6 +14,16 @@ M.base46 = {
   -- },
 }
 
+M.ui = {
+  cmp = {
+    icons_left = true,
+    format_colors = {
+      tailwind = true,
+    },
+  },
+  telescope = { style = "bordered" },
+}
+
 M.nvdash = {
   load_on_startup = true,
   header = {
