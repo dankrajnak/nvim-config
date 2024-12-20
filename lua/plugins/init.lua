@@ -184,4 +184,9 @@ return {
     "tveskag/nvim-blame-line",
     lazy = false,
   },
+
+  {
+    "RRethy/vim-illuminate",
+    lazy = false,
+  },
 }
